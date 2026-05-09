@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar CEP</title>
+
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container{
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button{
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover{
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Buscar CEP</h1>
+
+        <input type="text" id="cep" placeholder="Digite o CEP">
+
+        <button onclick="buscarCEP()">
+            Buscar
+        </button>
+
+        <br><br>
+
+        <input type="text" id="rua" placeholder="Rua">
+        <input type="text" id="bairro" placeholder="Bairro">
+        <input type="text" id="cidade" placeholder="Cidade">
+        <input type="text" id="estado" placeholder="Estado">
+    </div>
+
+    <script>
+        function buscarCEP() {
+
+            // Pega o valor digitado
+            const cep = document.getElementById("cep").value;
+
+            // Remove caracteres que não são números
+            const cepLimpo = cep.replace(/\D/g, '');
+
+            // Verifica se o CEP possui 8 números
+            if (cepLimpo.length !== 8) {
+                alert("Digite um CEP válido com 8 números!");
+                return;
+            }
+
+            // Faz a requisição para a API
+            fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`)
+                .then(response => response.json())
+                .then(dados => {
+
+                    // Verifica se o CEP existe
+                    if (dados.erro) {
+                        alert("CEP não encontrado!");
+                        return;
+                    }
+
+                    // Preenche os campos
+                    document.getElementById("rua").value = dados.logradouro;
+                    document.getElementById("bairro").value = dados.bairro;
+                    document.getElementById("cidade").value = dados.localidade;
+                    document.getElementById("estado").value = dados.uf;
+                })
+                .catch(error => {
+                    alert("Erro ao buscar o CEP!");
+                    console.log(error);
+                });
+        }
+    </script>
+
+</body>
+</html>
