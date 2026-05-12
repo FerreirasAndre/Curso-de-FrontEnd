@@ -6,6 +6,10 @@ import './App.css'
 import ListaPessoas from './components/listas_e_renderizacao/ListaPessoas'
 import Calculadora from './components/useStates/Calculadora'
 import CalculoIMC from './components/useStates/calculadoraIMC'
+import Produtos from './Exercicios_Fixacao/Produtos'
+import MapsExe from './Exercicios_Fixacao/MapsExe'
+import ApiViaCep from './components/fetch/ApiViaCep'
+
 
 
 function App() {
@@ -13,9 +17,7 @@ function App() {
   return (
     <>
     <div className='App'>
-      <Calculadora/>
-      <CalculoIMC/>
-      <ListaPessoas/>
+          <ApiViaCep/>
     </div>
     </>
   )
