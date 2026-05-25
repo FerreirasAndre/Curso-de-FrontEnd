@@ -1,0 +1,108 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.topo-direito{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.carrinho{
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#listaCarrinho{
+    margin-top: 10px;
+}
+
+.itemCarrinho{
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+#produtos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card{
+    background-color: white;
+    width: 250px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card img{
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+button{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover{
+    opacity: 0.8;
+}
+
+.login{
+    background-color: white;
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.login input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.botoes{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pagina-compra{
+    background-color: white;
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.itemCompra{
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
